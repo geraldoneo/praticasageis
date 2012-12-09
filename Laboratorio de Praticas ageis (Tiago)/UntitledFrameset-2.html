@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Emprestimo de Equipamento</title>
+<style type="text/css">
+.fonte {
+	font-family: Verdana, Geneva, sans-serif;
+}
+</style>
+</head>
+<body>
+<p class="fonte">Sistema para controle de empréstimo de equipamentos </p>
+<p class="fonte">&nbsp;</p>
+<p class="fonte">Descrição do Equipamento:</p>
+<form id="form1" method="post" action="">
+  <p>Tipo de Equipamento: 
+    <input type="radio" name="radio" id="internet" value="internet" />
+    <label for="internet">Internet</label>
+    - 
+  <input type="radio" name="radio" id="TV" value="TV" />
+  <label for="TV">tv</label>
+    - 
+  <input type="radio" name="radio" id="Híbrido" value="Híbrido" />
+  <label for="Híbrido">hibrido</label>
+  </p>
+  <p>Número de série:
+    <input type="text" name="Número de série" id="Número de série" />
+  </p>
+  <p>Status do equipamento:  
+    <label for="status">status</label>
+    <select name="status" size="1" id="status">
+      <option value="0">Selecione o status</option>
+      <option value="1">Disponível</option>
+      <option value="2">Esmprestado</option>
+      <option value="3">Em manutenção</option>
+    </select>
+  </p>
+</form>
+<p class="fonte">&nbsp;</p>
+</body>
+</html>

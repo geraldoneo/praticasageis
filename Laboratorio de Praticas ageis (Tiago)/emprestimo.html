@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Emprestimo de Equipamento</title>
+<style type="text/css">
+.fonte {	font-family: Verdana, Geneva, sans-serif;
+}
+.fonte1 {font-family: Verdana, Geneva, sans-serif;
+	font-size: 24px;
+}
+</style>
+</head>
+<body>
+<p class="fonte"><span class="fonte1">Sistema para controle de empréstimo de equipamentos </span></p>
+<table width="100%" border="1">
+  <tr>
+    <td align="center"><a href="cliente.html">CLIENTE</a></td>
+    <td align="center"><a href="equipamento.html">EQUIPAMENTO</a></td>
+    <td align="center"><a href="emprestimo.html">EMPRÉSTIMO</a></td>
+  </tr>
+</table>
+<p class="fonte">&nbsp;</p>
+<p class="fonte">Controle de Empréstimo</p>
+<form id="form1" method="post" action="">
+  <p>
+    <label for="cpf">CPF do cliente:</label>
+    <input type="text" name="cpf" id="cpf" />
+  </p>
+  <p>
+    <label for="nomeCliente">Nome do Cliente</label>
+    <input name="nomeCliente" type="text" id="nomeCliente" size="80" />
+  </p>
+  <p>&nbsp;</p>
+<p align="right">
+    <input type="submit" name="salvar" id="salvar" value="CONSULTAR" />
+  </p>
+</form>
+<p class="fonte">&nbsp;</p>
+<p class="fonte">Consultar Equipamento:</p>
+<form id="form2" method="post" action="">
+  <p>Selecione o equipamento desejado a ser locado:
+    <input type="radio" name="radio" id="internet" value="internet" />
+    <label for="internet">Internet</label>
+    --
+    <input type="radio" name="radio" id="TV" value="TV" />
+    <label for="TV">tv</label>
+    --
+    <input type="radio" name="radio" id="Híbrido" value="Híbrido" />
+    <label for="Híbrido">hibrido</label>
+  </p>
+  <p>
+    <label for="equipamentosGrid">Equipamentos Disponíveis</label>
+    <select name="equipamentosGrid" id="equipamentosGrid">
+    </select>
+    <label for="quantidadeEmprestimo"> <br />
+      <br />
+    Quantidade</label>
+    <input type="text" name="quantidadeEmprestimo" id="quantidadeEmprestimo" />
+    <input type="submit" name="selecionarEquipamento" id="selecionarEquipamento" value="Selecionar" />
+  </p>
+  <p>Equipamentos Selecionados:</p>
+  <table width="407" border="1">
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p align="right">
+    <input type="submit" name="SalvarEmprestimo" id="SalvarEmprestimo" value="Salvar" />
+  </p>
+</form>
+<p class="fonte"></p>
+</body>
+</html>
