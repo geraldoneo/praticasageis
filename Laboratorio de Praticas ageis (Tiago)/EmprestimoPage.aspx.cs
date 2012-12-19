@@ -27,9 +27,6 @@ public partial class EmprestimoPage : System.Web.UI.Page
         dropEquipamento.DataTextField = "NumeroSerie";
         dropEquipamento.DataBind();
 
-
-
-
     }
 
     protected void selecionarEquipamento_Click(object sender, EventArgs e)
@@ -43,14 +40,19 @@ public partial class EmprestimoPage : System.Web.UI.Page
 
             _emprestimo.DataEmprestimo = DateTime.Now;
             _emprestimo.IdCliente = int.Parse(lblIdClient.Text);
-            _emprestimo.IdEquipamento = int.Parse(dropEquipamento.SelectedValue);
+            _emprestimo.IdEquipamento = int.Parse(dropEquipamento.SelectedItem.Value);
             _emprestimo.Status = 1;
             _emprestimo.Quantidade = int.Parse(txtQtdeEmprestimo.Text);
 
             var id = 1;
 
-           if (emprestimoRepository.FindAll().Count() > 0)
-               id = emprestimoRepository.FindAll().Last().IdEmprestimo;
+            if (emprestimoRepository.FindAll().Count() > 0)
+            {
+
+                id = emprestimoRepository.FindAll().Count() + 1;
+            }
+
+
 
             _emprestimo.IdEmprestimo = id;
 

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Emprestimo;
+using emprestimoModel;
 
 
 public partial class RelatorioPage : System.Web.UI.Page
@@ -98,4 +99,59 @@ public partial class RelatorioPage : System.Web.UI.Page
     {
 
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        if (RadioButton1.Checked)
+        {
+            EmprestimoRepository _emprestimo = new EmprestimoRepository();
+
+            gridEmprestimo.DataSource = _emprestimo.FindAll().Where(x => x.Status == 1);
+            gridEmprestimo.DataBind();
+
+        }
+        else
+        {
+
+            EmprestimoRepository _emprestimo = new EmprestimoRepository();
+            EquipamentoRepository _equipamento = new EquipamentoRepository();
+
+            List<equipamento> equip = new List<equipamento>();
+
+            List<equipamento> equipTemp = new List<equipamento>();
+
+
+            equip = _equipamento.FindAll().ToList<equipamento>();
+
+            foreach (equipamento _equip in equip)
+            {
+                var eqp = _emprestimo.FindAll().Where(x => x.IdEquipamento == _equip.IdEquipamnto);
+
+                if (eqp.Count() > 0)
+                {
+                    int qtde = 0;
+
+
+                    foreach (emprestimo emp in eqp)
+                    {
+
+                        qtde += (int)emp.Quantidade;
+                    
+                    }
+
+                    _equip.Quantidade = _equip.Quantidade - qtde;
+
+                    equipTemp.Add(_equip);
+                }
+                else
+                    equipTemp.Add(_equip);
+            
+
+            }
+
+
+            gridEmprestimo.DataSource = equipTemp;
+            gridEmprestimo.DataBind();
+        }
+    }
+
 }

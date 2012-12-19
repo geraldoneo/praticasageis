@@ -433,18 +433,10 @@ namespace emprestimoModel
         /// Create a new emprestimo object.
         /// </summary>
         /// <param name="idEmprestimo">Initial value of the IdEmprestimo property.</param>
-        /// <param name="idCliente">Initial value of the IdCliente property.</param>
-        /// <param name="idEquipamento">Initial value of the IdEquipamento property.</param>
-        /// <param name="dataEmprestimo">Initial value of the DataEmprestimo property.</param>
-        /// <param name="quantidade">Initial value of the Quantidade property.</param>
-        public static emprestimo Createemprestimo(global::System.Int32 idEmprestimo, global::System.Int32 idCliente, global::System.Int32 idEquipamento, global::System.DateTime dataEmprestimo, global::System.Int32 quantidade)
+        public static emprestimo Createemprestimo(global::System.Int32 idEmprestimo)
         {
             emprestimo emprestimo = new emprestimo();
             emprestimo.IdEmprestimo = idEmprestimo;
-            emprestimo.IdCliente = idCliente;
-            emprestimo.IdEquipamento = idEquipamento;
-            emprestimo.DataEmprestimo = dataEmprestimo;
-            emprestimo.Quantidade = quantidade;
             return emprestimo;
         }
 
@@ -481,9 +473,9 @@ namespace emprestimoModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 IdCliente
+        public Nullable<global::System.Int32> IdCliente
         {
             get
             {
@@ -498,16 +490,16 @@ namespace emprestimoModel
                 OnIdClienteChanged();
             }
         }
-        private global::System.Int32 _IdCliente;
-        partial void OnIdClienteChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _IdCliente;
+        partial void OnIdClienteChanging(Nullable<global::System.Int32> value);
         partial void OnIdClienteChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 IdEquipamento
+        public Nullable<global::System.Int32> IdEquipamento
         {
             get
             {
@@ -522,16 +514,16 @@ namespace emprestimoModel
                 OnIdEquipamentoChanged();
             }
         }
-        private global::System.Int32 _IdEquipamento;
-        partial void OnIdEquipamentoChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _IdEquipamento;
+        partial void OnIdEquipamentoChanging(Nullable<global::System.Int32> value);
         partial void OnIdEquipamentoChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime DataEmprestimo
+        public Nullable<global::System.DateTime> DataEmprestimo
         {
             get
             {
@@ -546,8 +538,8 @@ namespace emprestimoModel
                 OnDataEmprestimoChanged();
             }
         }
-        private global::System.DateTime _DataEmprestimo;
-        partial void OnDataEmprestimoChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _DataEmprestimo;
+        partial void OnDataEmprestimoChanging(Nullable<global::System.DateTime> value);
         partial void OnDataEmprestimoChanged();
     
         /// <summary>
@@ -577,9 +569,9 @@ namespace emprestimoModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 Quantidade
+        public Nullable<global::System.Int32> Quantidade
         {
             get
             {
@@ -594,8 +586,8 @@ namespace emprestimoModel
                 OnQuantidadeChanged();
             }
         }
-        private global::System.Int32 _Quantidade;
-        partial void OnQuantidadeChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _Quantidade;
+        partial void OnQuantidadeChanging(Nullable<global::System.Int32> value);
         partial void OnQuantidadeChanged();
 
         #endregion
@@ -724,6 +716,30 @@ namespace emprestimoModel
         private Nullable<global::System.Int32> _Status;
         partial void OnStatusChanging(Nullable<global::System.Int32> value);
         partial void OnStatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Quantidade
+        {
+            get
+            {
+                return _Quantidade;
+            }
+            set
+            {
+                OnQuantidadeChanging(value);
+                ReportPropertyChanging("Quantidade");
+                _Quantidade = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Quantidade");
+                OnQuantidadeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Quantidade;
+        partial void OnQuantidadeChanging(Nullable<global::System.Int32> value);
+        partial void OnQuantidadeChanged();
 
         #endregion
     

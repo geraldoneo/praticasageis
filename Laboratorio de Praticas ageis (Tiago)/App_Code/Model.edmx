@@ -29,7 +29,7 @@
           <Key>
             <PropertyRef Name="IdEmprestimo" />
           </Key>
-          <Property Name="IdEmprestimo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmprestimo" Type="int" Nullable="false" />
           <Property Name="IdCliente" Type="int" />
           <Property Name="IdEquipamento" Type="int" />
           <Property Name="DataEmprestimo" Type="datetime" />
@@ -44,6 +44,7 @@
           <Property Name="TipoEquipameno" Type="int" />
           <Property Name="NumeroSerie" Type="nvarchar" MaxLength="10" />
           <Property Name="Status" Type="int" />
+          <Property Name="Quantidade" Type="int" />
         </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -58,36 +59,37 @@
           <Key>
             <PropertyRef Name="IdCliente" />
           </Key>
-          <Property Name="IdCliente" Type="Int32" Nullable="false" />
-          <Property Name="Nome" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Cpf" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
-          <Property Name="email" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="telefone" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
-          <Property Name="endereco" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="bairro" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="cidade" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="estado" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="cep" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="IdCliente" Nullable="false" />
+          <Property Type="String" Name="Nome" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cpf" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="telefone" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="endereco" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="bairro" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="cidade" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="estado" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="cep" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="emprestimo">
           <Key>
             <PropertyRef Name="IdEmprestimo" />
           </Key>
-          <Property Name="IdEmprestimo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdCliente" Type="Int32" Nullable="false" />
-          <Property Name="IdEquipamento" Type="Int32" Nullable="false" />
-          <Property Name="DataEmprestimo" Type="DateTime" Nullable="false" />
-          <Property Name="Status" Type="Int32" />
-          <Property Type="Int32" Name="Quantidade" Nullable="false" />
+          <Property Type="Int32" Name="IdEmprestimo" Nullable="false" />
+          <Property Type="Int32" Name="IdCliente" />
+          <Property Type="Int32" Name="IdEquipamento" />
+          <Property Type="DateTime" Name="DataEmprestimo" />
+          <Property Type="Int32" Name="Status" />
+          <Property Type="Int32" Name="Quantidade" />
         </EntityType>
         <EntityType Name="equipamento">
           <Key>
             <PropertyRef Name="IdEquipamnto" />
           </Key>
-          <Property Name="IdEquipamnto" Type="Int32" Nullable="false" />
-          <Property Name="TipoEquipameno" Type="Int32" />
-          <Property Name="NumeroSerie" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="IdEquipamnto" Nullable="false" />
+          <Property Type="Int32" Name="TipoEquipameno" />
+          <Property Type="String" Name="NumeroSerie" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" />
+          <Property Type="Int32" Name="Quantidade" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -95,32 +97,45 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="emprestimoModelStoreContainer" CdmEntityContainer="emprestimoEntities">
-          <EntitySetMapping Name="clientes"><EntityTypeMapping TypeName="emprestimoModel.cliente"><MappingFragment StoreEntitySet="cliente">
-            <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
-            <ScalarProperty Name="Nome" ColumnName="Nome" />
-            <ScalarProperty Name="Cpf" ColumnName="Cpf" />
-            <ScalarProperty Name="email" ColumnName="email" />
-            <ScalarProperty Name="telefone" ColumnName="telefone" />
-            <ScalarProperty Name="endereco" ColumnName="endereco" />
-            <ScalarProperty Name="bairro" ColumnName="bairro" />
-            <ScalarProperty Name="cidade" ColumnName="cidade" />
-            <ScalarProperty Name="estado" ColumnName="estado" />
-            <ScalarProperty Name="cep" ColumnName="cep" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="emprestimoes"><EntityTypeMapping TypeName="emprestimoModel.emprestimo"><MappingFragment StoreEntitySet="emprestimo">
+          <EntitySetMapping Name="clientes">
+            <EntityTypeMapping TypeName="emprestimoModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Cpf" ColumnName="Cpf" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emprestimoes">
+            <EntityTypeMapping TypeName="emprestimoModel.emprestimo">
+              <MappingFragment StoreEntitySet="emprestimo">
                 <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DataEmprestimo" ColumnName="DataEmprestimo" />
+                <ScalarProperty Name="IdEquipamento" ColumnName="IdEquipamento" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
                 <ScalarProperty Name="IdEmprestimo" ColumnName="IdEmprestimo" />
-            <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
-            <ScalarProperty Name="IdEquipamento" ColumnName="IdEquipamento" />
-            <ScalarProperty Name="DataEmprestimo" ColumnName="DataEmprestimo" />
-            <ScalarProperty Name="Status" ColumnName="Status" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="equipamentoes"><EntityTypeMapping TypeName="emprestimoModel.equipamento"><MappingFragment StoreEntitySet="equipamento">
-            <ScalarProperty Name="IdEquipamnto" ColumnName="IdEquipamnto" />
-            <ScalarProperty Name="TipoEquipameno" ColumnName="TipoEquipameno" />
-            <ScalarProperty Name="NumeroSerie" ColumnName="NumeroSerie" />
-            <ScalarProperty Name="Status" ColumnName="Status" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="equipamentoes">
+            <EntityTypeMapping TypeName="emprestimoModel.equipamento">
+              <MappingFragment StoreEntitySet="equipamento">
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="NumeroSerie" ColumnName="NumeroSerie" />
+                <ScalarProperty Name="TipoEquipameno" ColumnName="TipoEquipameno" />
+                <ScalarProperty Name="IdEquipamnto" ColumnName="IdEquipamnto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -136,15 +151,15 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model">
-        <EntityTypeShape EntityType="emprestimoModel.cliente" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
-        <EntityTypeShape EntityType="emprestimoModel.emprestimo" Width="1.5" PointX="2.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
-        <EntityTypeShape EntityType="emprestimoModel.equipamento" Width="1.5" PointX="2.75" PointY="3.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="emprestimoModel.cliente" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="emprestimoModel.emprestimo" Width="1.5" PointX="2.75" PointY="0.75" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="emprestimoModel.equipamento" Width="1.5" PointX="2.75" PointY="3.75" Height="1.7879850260416674" />
       </Diagram>
     </Diagrams>
   </Designer>

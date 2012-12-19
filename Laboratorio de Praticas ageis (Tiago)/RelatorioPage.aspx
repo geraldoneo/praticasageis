@@ -27,11 +27,12 @@
                 <asp:RadioButton ID="RadioButton1" runat="server" GroupName="Relatorio01" 
                     oncheckedchanged="RadioButton1_CheckedChanged" Text="Equipamento Emprestado" />
 &nbsp;-
-                <asp:RadioButton ID="RadioButton2" runat="server" GroupName="Relatorio01" 
-                    Text="Equipamento Livre" />
+                <asp:RadioButton ID="RdStatus" runat="server" GroupName="Relatorio01" 
+                    Text="Equipamento Livre" Checked="True" />
         </p>
         <p>
-            <asp:Button ID="Button1" runat="server" Text="Consultar" />
+            <asp:Button ID="Button1" runat="server" Text="Consultar" 
+                onclick="Button1_Click" />
         </p>
         <p>
             <asp:GridView ID="gridEmprestimo" runat="server">
