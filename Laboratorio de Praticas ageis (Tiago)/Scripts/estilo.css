@@ -3,10 +3,16 @@
     float:left;
 }
 
-#input
+#input_cpf
 {
     float:left;
-    margin-left:100px;
+    margin-left:24px;
+}
+
+#input_nome
+{
+    float:left;
+    margin-left:8px;
 }
 
 #conteudo

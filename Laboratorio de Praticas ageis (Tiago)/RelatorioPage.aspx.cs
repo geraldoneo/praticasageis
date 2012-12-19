@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using Emprestimo;
 
 
-public partial class EmprestimoPage : System.Web.UI.Page
+public partial class RelatorioPage : System.Web.UI.Page
 {
     ClientRepository clientRepository;
     EquipamentoRepository equipamentoRepository;
@@ -22,10 +22,10 @@ public partial class EmprestimoPage : System.Web.UI.Page
 
         var equipamentoList = equipamentoRepository.FindAll();
 
-        dropEquipamento.DataSource = equipamentoList;
+        /*dropEquipamento.DataSource = equipamentoList;
         dropEquipamento.DataValueField = "IdEquipamnto";
         dropEquipamento.DataTextField = "NumeroSerie";
-        dropEquipamento.DataBind();
+        dropEquipamento.DataBind();*/
 
 
 
@@ -34,7 +34,7 @@ public partial class EmprestimoPage : System.Web.UI.Page
 
     protected void selecionarEquipamento_Click(object sender, EventArgs e)
     {
-        if (char.IsNumber(txtQtdeEmprestimo.Text, 0) && char.IsNumber(lblIdClient.Text, 0))
+        /*if (char.IsNumber(txtQtdeEmprestimo.Text, 0) && char.IsNumber(lblIdClient.Text, 0))
         {
 
             emprestimoRepository = new EmprestimoRepository();
@@ -63,9 +63,9 @@ public partial class EmprestimoPage : System.Web.UI.Page
 
             gridEmprestimo.DataSource = _emprestimos;
             gridEmprestimo.DataBind();
-
-        }
-        else
+            
+        }*/
+        /*else
         {
             Response.Write("Consulte o cliente e insira a quantidade, campo deve ser numerico.");
         }
@@ -87,10 +87,14 @@ public partial class EmprestimoPage : System.Web.UI.Page
 
             gridEmprestimo.DataSource = _emprestimos;
             gridEmprestimo.DataBind();
-        }
+        }*/
 
     }
     protected void txtNomedoRelatorio0_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
     {
 
     }

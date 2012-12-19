@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.master" CodeFile="EmprestimoPage.aspx.cs" Inherits="EmprestimoPage" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <link href="Scripts/estilo.css" rel="stylesheet" type="text/css" />
+
     <script language="javascript" type="text/javascript">
 // <![CDATA[
 
@@ -12,22 +14,24 @@
     </script>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-
+        <br />
         <p> <div id="conteudo">
             <div id="alinhamento"><label for="cpf">
                 CPF do cliente:</label></div>
-            <div id="input"><asp:TextBox ID="txtCpf" runat="server"></asp:TextBox></div></div>
-
+            <div id="input_cpf"><asp:TextBox ID="txtCpf" runat="server"></asp:TextBox></div></div>
+    
         </p>
-        <p>
+        <br/>
+       
+        <p><div id="alinhamento">
             <label for="nomeCliente">
-                Nome do Cliente</label>
-            <asp:TextBox id="txtNomeCliente" runat="server" size="80" Enabled="False" />
-        &nbsp;<asp:Label ID="lblIdClient" runat="server" Text="Label" Visible="False"></asp:Label>
+                Nome do Cliente:</label></div>
+           <div id="input_nome"> <asp:TextBox id="txtNomeCliente" runat="server" size="80" Enabled="False" />
+        &nbsp;<asp:Label ID="lblIdClient" runat="server" Text="Label" Visible="False"></asp:Label></div>
         </p>
         <p>
             &nbsp;</p>
-        <p align="right">
+        <p style="margin-left:503px;">
             <asp:Button id="consultar" runat="server" Text="CONSULTAR" 
                 onclick="consultar_Click" />
         </p>
